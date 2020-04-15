@@ -4,7 +4,7 @@
     - fail2ban
     - whois  # for mail notifications
 
-- name: Make fail2ban more persistent  
+- name: Make fail2ban more persistent
   ini_file:
     path: /etc/fail2ban/fail2ban.local
     section: Definition

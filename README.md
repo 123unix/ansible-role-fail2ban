@@ -3,7 +3,7 @@ fail2ban
 
 Install **fail2ban** and configure it with more practical settings.
 
-Specifically, 
+Specifically,
   * make fail2ban ban whole subnets
       *  /16 by default, but configurable, instead of the stock ban by hosts (/32)
   * **DROP** packets from the banned hosts instead of REJECT
