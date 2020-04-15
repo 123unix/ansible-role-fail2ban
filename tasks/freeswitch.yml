@@ -1,0 +1,7 @@
+- name: Configure fail2ban for FreeSWITCH
+  copy:
+    src: jail.d/freeswitch.local
+    dest: /etc/fail2ban/jail.d/
+    mode: '0644'
+  notify: reload fail2ban
+

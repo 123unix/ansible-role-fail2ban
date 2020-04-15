@@ -1,0 +1,5 @@
+[Init]
+blocktype = DROP
+
+# moved to individual jail as a parameter
+#protocol = all

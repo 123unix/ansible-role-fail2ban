@@ -1,0 +1,6 @@
+---
+- import_tasks: common.yml
+
+- name: Finetune jails
+  include_tasks: "{{ item }}.yml"
+  with_items: "{{ fail2ban_jails }}"

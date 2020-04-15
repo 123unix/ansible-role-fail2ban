@@ -1,0 +1,7 @@
+
+[freeswitch]
+#logpath = /var/log/syslog
+logpath = /opt/freeswitch/log/freeswitch.log
+#port = anyport
+maxretry = 3
+enabled = true

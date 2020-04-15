@@ -1,0 +1,13 @@
+[freeswitch]
+#logpath = /var/log/syslog
+logpath = /opt/freeswitch/log/freeswitch.log
+#banaction = iptables-allports
+#port = anyport
+maxretry = 3
+protocol = all
+banaction = iptables-allports
+action = %(banaction)s[name=%(__name__)s, protocol="all", chain="%(chain)s", actname="%(banaction)s"]
+         %(mta)s-whois[name=%(__name__)s, dest="%(destemail)s"]
+enabled = true
+
+

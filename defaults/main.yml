@@ -1,0 +1,19 @@
+---
+notifications_mail_to: root
+#notifications_mail_from: root
+
+# fail2ban v. 0.9 needs seconds, 0.10+ can take suffix h, d, like so:
+#bantime = 3d
+#findtime = 3h
+fail2ban_bantime: '9000000'
+fail2ban_findtime: '11000'
+
+fail2ban_dbpurgeage: '1864000'  # approx 25days, default 1d
+
+# By default only ssh is jailed
+# Can list: asterisk, freeswitch
+fail2ban_jails: []
+
+# More modest would be 24, more drastic 12 or even 8
+# Default is 32
+fail2ban_ban_subnet: '16'

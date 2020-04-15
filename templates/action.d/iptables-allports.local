@@ -1,0 +1,4 @@
+[Definition]
+actionban = <iptables> -I f2b-<name> 1 -s <ip>/{{ fail2ban_ban_subnet }} -j <blocktype>
+actionunban = <iptables> -D f2b-<name> -s <ip>/{{ fail2ban_ban_subnet }} -j <blocktype>
+

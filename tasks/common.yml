@@ -1,0 +1,30 @@
+- name: install fail2ban
+  package:
+    name:
+    - fail2ban
+    - whois  # for mail notifications
+
+- name: Make fail2ban more persistent  
+  ini_file:
+    path: /etc/fail2ban/fail2ban.local
+    section: Definition
+    option: dbpurgeage
+    value: "{{ fail2ban_dbpurgeage }}"
+  notify: reload fail2ban
+
+- name: fail2ban ban subnets and DROP, not REJECT
+  template:
+    src: "{{item}}"
+    dest: /etc/fail2ban/action.d/
+    mode: '0644'
+  with_fileglob:
+  - templates/action.d/*.local
+  notify: reload fail2ban
+
+- name: Extra defaults
+  template:
+    src: jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    mode: '0644'
+  notify: reload fail2ban
+

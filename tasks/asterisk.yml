@@ -1,0 +1,19 @@
+
+- name: Configure fail2ban for Asterisk
+  ini_file:
+    path: /etc/fail2ban/jail.d/asterisk.local
+    section: "{{ ini.s }}"
+    option: "{{ ini.o }}"
+    value: "{{ ini.v }}"
+  with_items:
+  - { s: asterisk, o: enabled, v: 'true' }
+  #- { s: asterisk, o: port, v: "{{ asterisk_extern_port }}" }
+  - { s: asterisk, o: port, v: anyport }
+  - { s: asterisk, o: maxretry, v: 3 }
+  - { s: DEFAULT, o: bantime, v: 3d }
+  - { s: DEFAULT, o: findtime, v: 3h }
+  - { s: DEFAULT, o: destemail, v: "{{ notifications_mail_to }}" }
+  - { s: DEFAULT, o: sender, v: "{{ pbx_notifier }}" }
+  loop_control:
+    loop_var: ini
+  notify: reload fail2ban
