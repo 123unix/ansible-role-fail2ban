@@ -14,7 +14,7 @@
 
 - name: fail2ban ban subnets and DROP, not REJECT
   template:
-    src: "{{item}}"
+    src: "{{ item }}"
     dest: /etc/fail2ban/action.d/
     mode: '0644'
   with_fileglob:
@@ -27,4 +27,3 @@
     dest: /etc/fail2ban/jail.local
     mode: '0644'
   notify: reload fail2ban
-

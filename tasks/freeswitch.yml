@@ -4,4 +4,3 @@
     dest: /etc/fail2ban/jail.d/
     mode: '0644'
   notify: reload fail2ban
-

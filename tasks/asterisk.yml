@@ -1,4 +1,3 @@
-
 - name: Configure fail2ban for Asterisk
   ini_file:
     path: /etc/fail2ban/jail.d/asterisk.local
